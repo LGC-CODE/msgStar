@@ -27,14 +27,6 @@ var io = socket_io;
 app.io = io;
 
 io.sockets.on('connection', function (socket) {
-  // socket.emit('message', { 
-  //  message: 'welcome to chatroom',
-  //  from: 'RockstarIM'
-  // });
-  // socket.on('send', function(data){
-  //  console.log(data);
-  //  io.sockets.emit('message', data);
-  // });
 
   socket.on('send message', function(data){
     console.log('sending room post', data.room, 'message contains: ', data.text);
