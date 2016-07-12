@@ -13,8 +13,8 @@ require('./models/UserLog');
 require('./config/passport');
 
 
-mongoose.connect('mongodb://localhost/rockstarImFinal', function(){
-  console.log('mongodb connection successful');
+mongoose.connect('mongodb://appAdmin:Gokussj6@ds037607.mlab.com:37607/heroku_nqbqpd5t' || 'mongodb://localhost/rockstarImFinal', function(){
+  console.log('mongodb connected');
 });
 
 var routes = require('./routes/index');
