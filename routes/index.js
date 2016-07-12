@@ -9,7 +9,7 @@ var auth =  jwt({ secret: 'SECRET', userProperty: 'payload' });
 
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'RockstarIM' });
 });
 
 router.get('/users', function(req, res, next){

@@ -1,9 +1,12 @@
 var express = require('express');
 var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+// var server = require('http').createServer(app);
 
-server.listen(process.env.PORT || 3000);
+var www = require('../bin/www'); 
+console.log('this is www:', www);
+// server.listen(process.env.PORT || 3000);
+
+var io = require('socket.io').listen(www.server);
 
 io.sockets.on('connection', function (socket) {
 	// socket.emit('message', { 
