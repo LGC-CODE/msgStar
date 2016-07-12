@@ -157,7 +157,7 @@ app.factory('auth', ['$http', '$window', function($http, $window){
 }]);
 
 app.factory('socket', function ($rootScope) {
-  var socket = io.connect('http://localhost:3000');
+  var socket = io.connect('http://localhost:5000');
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {  
