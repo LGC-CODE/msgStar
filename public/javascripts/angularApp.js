@@ -40,7 +40,7 @@ app.factory('identification', function(){ //creating service syntax
 	};
 
 	z.ids = function(id){
-		console.log('you just checked for: ', id)
+		// console.log('you just checked for: ', id)
 		z.ident.push({
 			numId: id
 		});
@@ -57,7 +57,7 @@ app.factory('count',['$http','users','auth', function($http, users, auth){ //cre
 		return $http.put('/allUsers/' + obj._id + '/notify', obj)
 			.success(function(data){
 				// obj.notification +=1;
-				console.log(data, 'logging data parameter addCount');
+				// console.log(data, 'logging data parameter addCount');
 			});
 
 		// console.log(obj, 'obj object addcount posting');
@@ -67,7 +67,7 @@ app.factory('count',['$http','users','auth', function($http, users, auth){ //cre
 		return $http.put('/allUsers/' + obj._id + '/reset', obj)
 			.success(function(data){
 				// obj.notification +=1;
-				console.log(data, 'logging data parameter resetCount');
+				// console.log(data, 'logging data parameter resetCount');
 		});
 	};
 
@@ -79,7 +79,7 @@ app.factory('count',['$http','users','auth', function($http, users, auth){ //cre
 				}
 				else {
 					if(usr[i].username == auth.currentUser().name){
-						console.log(usr[i] , 'obj returned notify func');
+						// console.log(usr[i] , 'obj returned notify func');
 						return usr[i];
 					} else {
 						console.log('ERROR');
@@ -89,7 +89,7 @@ app.factory('count',['$http','users','auth', function($http, users, auth){ //cre
 	};
 
 	v.keepCount = function(){
-			console.log(v.nfy(), 'this is notification property');
+			// console.log(v.nfy(), 'this is notification property');
 
 			return v.nfy();
 	};
@@ -157,7 +157,8 @@ app.factory('auth', ['$http', '$window', function($http, $window){
 }]);
 
 app.factory('socket', function ($rootScope) {
-  var socket = io.connect('http://localhost:3000');
+	console.log(window.location.hostname, '<<<<! host name ')
+  var socket = io.connect(window.location.hostname);
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {  
@@ -289,7 +290,7 @@ app.controller('mainCtrl', [ //RockstarIM
 	$scope.user =  userRetrieve;
 	$scope.returnUser = $scope.currentUser().display;
 	var usr =  users.users;
-	console.log($scope.user, 'main ctrl scope user NEW');
+	// console.log($scope.user, 'main ctrl scope user NEW');
 	$scope.private = function(id){
 		$scope.ident = id;
 		socket.emit('subscribe', $scope.ident);
@@ -402,7 +403,7 @@ app.controller('NavCtrl', [
 		$scope.isLoggedIn = auth.isLoggedIn;
 		$scope.currentUser = auth.currentUser;
 		$scope.logOut = auth.logOut;
-		console.log('count', count[0].count);
+		// console.log('count', count[0].count);
 
 		$scope.reset = function(){
 			count.resetCount(count.nfy());
@@ -417,11 +418,11 @@ app.controller('NavCtrl', [
 			
 			for (var i = 0; i < usr.length; i++) {
 				if(!auth.isLoggedIn()){
-					console.log('user is logged off');
+					// console.log('user is logged off');
 				}
 				else {
 					if(usr[i].username == auth.currentUser().name){
-						console.log(usr[i]._id, 'Success >>> profile id');
+						// console.log(usr[i]._id, 'Success >>> profile id');
 						return usr[i]._id;
 					} else {
 						console.log('ERROR');
