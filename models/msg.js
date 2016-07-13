@@ -17,7 +17,7 @@ io.sockets.on('connection', function (socket) {
 	// 	console.log(data);
 	// 	io.sockets.emit('message', data);
 	// });
-
+	console.log('socket io connected')
 	socket.on('send message', function(data){
 		console.log('sending room post', data.room, 'message contains: ', data.text);
 		io.sockets.in(data.room).emit('private', {
