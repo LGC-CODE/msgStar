@@ -355,6 +355,9 @@ app.controller('usersCtrl' , [
 	function($scope, users, auth){
 	$scope.isLoggedIn =  auth.isLoggedIn;
 	$scope.userReg = users.users;
+	$scope.random = function() {
+        return 0.5 - Math.random();
+    }
 	
 }]);
 
