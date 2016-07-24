@@ -23,17 +23,8 @@
 	      <li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
 	    </ul>
 	 </nav>
-  	<div class="row">
-  		<center style="color: gray; background: black; padding: 9px;">
-  			<h4>Thanks For Trying Out My Website</h4>
-  			<p>I know there is still room for improvement</p>
-  			<p>and I will update the app soon with more features</p>
-  			<p>thanks again for trying out the app!</p>
-  			<p>design@luisconstante.com || 510-866-8433</p>
-  			<ui-view></ui-view>
-  		</center>
-	</div>
 
+  	<ui-view></ui-view>
 	<script type="text/ng-template" id="/login.html">
 		<div class="col-sm-offset-4 col-md-offset-4 col-xs-12 col-sm-4 col-md-4">
 		  <div class="page-header">
@@ -163,7 +154,7 @@
 			    			<p>{{ user.age }}</p>
 			    			<p>{{ user.email }}</p>
 			    		</div>
-			    		<div ng-show="isLoggedIn()" class="col-xl-6">
+			    		<div ng-hide="isLoggedIn()" class="col-xl-6">
 			    			<a href="#/RockstarIM/{{ user._id }}"><button class="btn btn-chat">Chat!</button></a>
 			    		</div>
 		    	</div>
