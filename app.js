@@ -29,11 +29,12 @@ app.io = io;
 io.sockets.on('connection', function (socket) {
 
   socket.on('send message', function(data){
-    console.log('sending room post', data.room, 'message contains: ', data.text);
+    // console.log('sending room post', data.room, 'message contains: ', data.text);
     io.sockets.in(data.room).emit('private', {
       room: data.room,
       text: data.text,
-      from: data.from
+      from: data.from,
+      avatar: data.avatar
     });
   });
 
